@@ -16,7 +16,7 @@ export default function AddEmployee({ onAdded, onDeleted }) {
   // ✅ Fetch employees for delete dropdown
   async function fetchEmployees() {
     try {
-      const res = await fetch(`${BASE}/employees`);
+      const res = await fetch(`${BASE}/api/employees`);
       const data = await res.json();
       setEmployees(data);
     } catch (err) {
@@ -32,7 +32,7 @@ export default function AddEmployee({ onAdded, onDeleted }) {
   async function submit(e) {
     e.preventDefault();
     try {
-      const res = await fetch(`${BASE}/employees`, {
+      const res = await fetch(`${BASE}/api/employees`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -60,7 +60,7 @@ export default function AddEmployee({ onAdded, onDeleted }) {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
-      const res = await fetch(`${BASE}/employees/${selectedEmp}`, {
+      const res = await fetch(`${BASE}/api/employees/${selectedEmp}`, {
         method: "DELETE",
       });
       if (!res.ok) {

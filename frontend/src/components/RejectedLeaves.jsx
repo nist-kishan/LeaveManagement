@@ -6,7 +6,7 @@ export default function RejectedLeaves() {
 
   const fetchRejected = async () => {
     try {
-      const res = await fetch(`${BASE}/leaves/rejected`);
+      const res = await fetch(`${BASE}/api/leaves/rejected`);
       const data = await res.json();
       setLeaves(data);
     } catch (e) {

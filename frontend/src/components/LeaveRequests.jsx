@@ -5,7 +5,7 @@ export default function LeaveRequests(){
   const BASE = import.meta.env.VITE_API_BASE;
   const fetchAll = async ()=> {
     try {
-      const res = await fetch(`${BASE}/leaves`);
+      const res = await fetch(`${BASE}/api/leaves`);
       const data = await res.json();
       setList(data);
     } catch(e){ console.error(e); }
@@ -14,7 +14,7 @@ export default function LeaveRequests(){
 
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`${BASE}/leaves/${id}/status`, {
+      const res = await fetch(`${BASE}/api/leaves/${id}/status`, {
         method: 'PATCH',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({ status })

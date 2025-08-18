@@ -13,7 +13,7 @@ export default function App() {
 
   const refresh = async () => {
     try {
-      const res = await fetch(`${BASE}/employees`);
+      const res = await fetch(`${BASE}/api/employees`);
       const data = await res.json();
       setEmployees(data);
     } catch (e) {

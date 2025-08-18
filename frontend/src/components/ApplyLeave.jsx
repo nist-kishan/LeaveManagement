@@ -20,7 +20,7 @@ export default function ApplyLeave({ onSubmit }) {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${BASE}/employees`);
+        const res = await fetch(`${BASE}/api/employees`);
         const data = await res.json();
         setEmployees(data);
         setFiltered(data);
@@ -126,7 +126,7 @@ export default function ApplyLeave({ onSubmit }) {
 };
 
     try {
-      const res = await fetch(`${BASE}/leaves`, {
+      const res = await fetch(`${BASE}/api/leaves`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
