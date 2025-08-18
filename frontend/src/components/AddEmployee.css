@@ -1,0 +1,69 @@
+.employee-form-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 35px;
+  max-width: 420px;
+  margin: 30px auto;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ff6a00, #ff4081, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.employee-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.employee-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.submit-btn {
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff6a00, #ff3c00);
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0px 6px 15px rgba(255, 106, 0, 0.5);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #ff3c00, #ff0000);
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 20px rgba(255, 106, 0, 0.7);
+}
+
+.form-msg {
+  margin-top: 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd700;
+}

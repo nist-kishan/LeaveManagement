@@ -1,0 +1,93 @@
+.apply-card {
+  background: rgba(255, 255, 255, 0.85); /* glass effect */
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  padding: 2.2rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  max-width: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(106, 17, 203, 0.2), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(37, 117, 252, 0.2), transparent 60%);
+  z-index: 0;
+}
+
+.apply-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+.apply-title {
+  text-align: center;
+  margin-bottom: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.apply-input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+  background: #fff;
+}
+.apply-input:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+}
+
+.apply-btn {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  transition: all 0.35s ease-in-out;
+}
+.apply-btn:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: scale(1.07);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.apply-msg {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
