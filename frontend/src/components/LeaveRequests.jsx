@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 export default function LeaveRequests(){
   const [list, setList] = useState([]);
+  const BASE = import.meta.env.VITE_API_BASE;
   const fetchAll = async ()=> {
     try {
-      const res = await fetch('http://localhost:5000/api/leaves');
+      const res = await fetch(`${BASE}/leaves`);
       const data = await res.json();
       setList(data);
     } catch(e){ console.error(e); }
@@ -13,7 +14,7 @@ export default function LeaveRequests(){
 
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/leaves/${id}/status`, {
+      const res = await fetch(`${BASE}/leaves/${id}/status`, {
         method: 'PATCH',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({ status })

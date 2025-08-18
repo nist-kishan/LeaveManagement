@@ -11,11 +11,12 @@ export default function AddEmployee({ onAdded, onDeleted }) {
   const [msg, setMsg] = useState("");
   const [employees, setEmployees] = useState([]);
   const [selectedEmp, setSelectedEmp] = useState("");
+  const BASE = import.meta.env.VITE_API_BASE;
 
   // ✅ Fetch employees for delete dropdown
   async function fetchEmployees() {
     try {
-      const res = await fetch("http://localhost:5000/api/employees");
+      const res = await fetch(`${BASE}/employees`);
       const data = await res.json();
       setEmployees(data);
     } catch (err) {
@@ -31,7 +32,7 @@ export default function AddEmployee({ onAdded, onDeleted }) {
   async function submit(e) {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/employees", {
+      const res = await fetch(`${BASE}/employees`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -59,7 +60,7 @@ export default function AddEmployee({ onAdded, onDeleted }) {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/employees/${selectedEmp}`, {
+      const res = await fetch(`${BASE}/employees/${selectedEmp}`, {
         method: "DELETE",
       });
       if (!res.ok) {

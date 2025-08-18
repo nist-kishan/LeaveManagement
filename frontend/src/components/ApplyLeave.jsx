@@ -6,6 +6,7 @@ export default function ApplyLeave({ onSubmit }) {
   const [employees, setEmployees] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const BASE = import.meta.env.VITE_API_BASE;
 
   const [form, setForm] = useState({
     name: "",
@@ -19,7 +20,7 @@ export default function ApplyLeave({ onSubmit }) {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/employees");
+        const res = await fetch(`${BASE}/employees`);
         const data = await res.json();
         setEmployees(data);
         setFiltered(data);
@@ -125,7 +126,7 @@ export default function ApplyLeave({ onSubmit }) {
 };
 
     try {
-      const res = await fetch("http://localhost:5000/api/leaves", {
+      const res = await fetch(`${BASE}/leaves`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

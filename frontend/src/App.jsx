@@ -5,14 +5,15 @@ import AddEmployee from "./components/AddEmployee";
 import EmployeeList from "./components/EmployeeList";
 import ApplyLeave from "./components/ApplyLeave";
 import LeaveRequests from "./components/LeaveRequests";
-import LandingPage from "./components/LandingPage"; // ✅ Import
+import LandingPage from "./components/LandingPage";
 
 export default function App() {
   const [employees, setEmployees] = useState([]);
+  const BASE = import.meta.env.VITE_API_BASE;
 
   const refresh = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/employees");
+      const res = await fetch(`${BASE}/employees`);
       const data = await res.json();
       setEmployees(data);
     } catch (e) {

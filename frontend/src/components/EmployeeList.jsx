@@ -2,9 +2,10 @@ import React from 'react';
 import './EmployeeList.css';  // ✅ make sure CSS is updated
 
 export default function EmployeeList({ employees, onRefresh }) {
+  const BASE = import.meta.env.VITE_API_BASE;
   const fetchBalance = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/employees/${id}/balance`);
+      const res = await fetch(`${BASE}/employees/${id}/balance`);
       const data = await res.json();
       alert(`Leave balance: ${data.leaveBalance}`);
     } catch (e) { 
