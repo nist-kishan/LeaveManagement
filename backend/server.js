@@ -9,7 +9,11 @@ const employeeRoutes = require('./routes/employeeRoutes');
 const leaveRoutes = require('./routes/leaveRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: process.env.FRONTEND_URL
+  }
+));
 app.use(bodyParser.json());
 
 // routes
